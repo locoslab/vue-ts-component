@@ -1,33 +1,35 @@
-/// <reference path="../../src/vue-component.ts" />
-const {createComponent, prop, lifecycleHook, eventHook} = VueComponent;
+import  VueTsComponent   from '../../src/vue-ts-component' 
 
 // register the grid component
-@createComponent('demo-grid')
-class DemoGrid extends VueComponent.Base {
+@VueTsComponent.component('demogrid')
+export default class DemoGrid extends VueTsComponent.Component {
 
 	static template:string = '#grid-template';
 	static replace:boolean = true;
 
-	@prop({
+	@VueTsComponent.prop({
 		type: Array,
 		required: true
 	})
 	data:Array<{name:string, power:number }>;
 
-	@prop({
+	@VueTsComponent.prop({
 		type: Array,
 		required: true
 	})
 	columns:Array<string>;
-
-	@prop(String)
-	filterKey: string = '';
+ 
+	@VueTsComponent.prop({
+		type: String,
+		required: true
+	})
+	filterKey: string ;
 
 	sortKey:string = '';
 
 	reversed:{[key:string]: boolean} = {};
 
-	@lifecycleHook('compiled')
+	@VueTsComponent.lifecycle('compiled')
 	compiled():void {
 		this.columns.forEach((key:string):void => {
 			this.$set(`reversed.${key}`, false);

@@ -1,0 +1,49 @@
+{
+  "name": "vue-ts-component",
+  "version": "0.1.0",
+  "description": "This package contains utilities to create vue components that look like classes. The code is is based on https://github.com/usystems/vuejs-typescript-component. The modifications include a few renamings and extensions for vue-router. Note that this code relies on the decorator feature of typescript to perform the conversions. At the time of writing, (July 2016), this feature is marked experimental and requires a special compiler flag.",
+  "main": "./dist/vue-ts-component.js",
+  "typings": "./src/vue-ts-component.ts",
+  "files": [
+    "dist/",
+    "src/"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watchify": "watchify -vd -p [ tsify --debug --noImplicitAny ] -p browserify-hmr -e examples/main.ts -o examples/build.js",
+    "serve": "http-server ./examples  -c 1 -a localhost",
+    "build": "tsc -p dist_config/tsconfig.json",
+    "examples": "npm-run-all --parallel watchify serve"
+  },
+  "keywords": [
+    "vue-ts-component"
+  ],
+  "contributors": [
+    "Lukas Gamper",
+    "Marcus Handte",
+    "Stephan Wagner"
+  ],
+  "license": "MIT",
+  "browserify": {
+    "transform": [
+      "vueify",
+      "babelify"
+    ]
+  },
+  "dependencies": {
+    "typescript": "^1.8.10",
+    "vue": "^1.0.26"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-runtime": "^6.12.0",
+    "babel-preset-es2015": "^6.13.2",
+    "babelify": "^7.2.0",
+    "browserify-hmr": "^0.3.1",
+    "http-server": "^0.9.0",
+    "npm-run-all": "^3.0.0",
+    "tsify": "^1.0.3",
+    "typescript": "^1.8.10",
+    "vueify": "^8.5.2",
+    "watchify": "^3.7.0"
+  }
+}

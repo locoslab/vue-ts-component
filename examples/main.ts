@@ -1,7 +1,14 @@
-// bootstrap the demo
-var demo = new Vue({
-	el: '#demo',
-	data: {
+import * as Vue from 'vue'
+
+declare var require: any
+var App = require('./App.vue')
+
+/* eslint-disable no-new */
+
+new Vue({
+  el: 'body',
+  components: { App },
+  data:  {
 		searchQuery: '',
 		gridColumns: ['name', 'power'],
 		gridData: [

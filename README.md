@@ -1,16 +1,40 @@
 # Decorators to transform a TypeScript class to a Vue component
 
+
+### Setup 
+To setup the package you can install the npm dependencies by:
+
+    npm install
+
+You can run the examples by:
+
+	npm run examles
+
+To compile the source please run the build script
+
+	npm run build
+
+While the package is not in the npm repository you can include it as a dependency within your development projects by specifying it as a file dependency in the package.json.
+
+```
+"dependencies": {
+    ...
+    "vue-ts-component": "file:path/to/folder",
+    ...
+  },
+```
+
+### Usage
+
 ```typescript
 // load the decorators
-/// <reference path="src/vue-component.ts" />
-// destruct the decorators from the VueComponent
-const {createComponent, prop, lifecycleHook, eventHook} = VueComponent;
+import VueTsComponent from 'vue-ts-component'
 
 // transform the class Demo to a vue component called demo
 @createComponent('demo')
-// the VueComponent.Base provides all the declarations, Vue provieds to the component, the makes sure
-// TypeScript support type checking and autocomplete
-class Demo extends VueComponent.Base {
+// The Vue typings contain the definitions that are needed to enable
+// TypeScript support for type checking and autocomplete
+class Demo extends VueTsComponent.Component {
 
 	// transforms to option.template 
 	static template:string = '#demo-template';
