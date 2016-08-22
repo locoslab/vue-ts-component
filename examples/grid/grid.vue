@@ -1,12 +1,12 @@
 <template>
-      <div>  
+      <div>
       <table>
         <thead>
         <tr>
             <template v-for="key in columns">
                 <th v-on:click="sortBy(key)"> {{key | capitalize}}</th>
             </template>
-            
+
         </tr>
         </thead>
         <tbody>
@@ -23,5 +23,5 @@
 <script lang='ts'>
     import DemoGrid from './grid.ts';
     import VueComponent from '../../src/vue-ts-component' ;
-    export default VueComponent.createOptions(new DemoGrid().constructor);
+    export default VueComponent.createOptions(DemoGrid);
 </script>

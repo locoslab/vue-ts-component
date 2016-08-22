@@ -10,5 +10,5 @@
 <script lang='ts' >
     import Count from './count.ts';
     import VueTsComponent from '../../src/vue-ts-component' ;
-    export default VueTsComponent.createOptions(new Count().constructor);
+    export default VueTsComponent.createOptions(Count);
 </script>

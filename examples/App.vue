@@ -4,11 +4,11 @@
     <h2>Count</h2>
     <count></count>
     <hr>
-    
+
     <h2>Grid</h2>
     <div id="demo">
     <form id="search">
-        Search <input name="query" v-model="searchQuery">
+        Search <input name="gridfilter" v-model="searchQuery">
     </form>
     <demogrid
             :data=gridData

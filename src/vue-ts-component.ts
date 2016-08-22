@@ -1,5 +1,5 @@
-
 import * as VueStatic from 'vue'
+import * as VueRouter from 'vue-router'
 
 /**
  * This package contains utilities to create view components that look like classes.
@@ -25,7 +25,7 @@ export namespace VueTsComponent {
         $children: Array<vuejs.Vue>;
         $el: HTMLElement;
         $options: any;
-        $parent: vuejs.Vue; 
+        $parent: vuejs.Vue;
         $root: vuejs.Vue;
 
         // additional properties exposed by vue-router: http://router.vuejs.org/en/
@@ -62,7 +62,7 @@ export namespace VueTsComponent {
         ):void {}
     }
 
-	/** 
+	/**
      * A decorator to register a method as a lifecycle hook.
      *
      * @param hook The hook to register for. See https://vuejs.org/api/#Options-Lifecycle-Hooks.
@@ -150,7 +150,7 @@ export namespace VueTsComponent {
         // check for replace and template
         if (cls.hasOwnProperty('replace'))
             options.replace = cls.replace;
- 
+
         if (cls.hasOwnProperty('template'))
             options.template = cls.template;
 

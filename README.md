@@ -1,28 +1,23 @@
-# Decorators to transform a TypeScript class to a Vue component
+# vue-ts-component
+Decorators to transform a TypeScript class to a Vue component
 
-
-### Setup 
+### Setup
 To setup the package you can install the npm dependencies by:
 
     npm install
 
 You can run the examples by:
 
-	npm run examles
+	npm run examples
 
 To compile the source please run the build script
 
 	npm run build
 
-While the package is not in the npm repository you can include it as a dependency within your development projects by specifying it as a file dependency in the package.json.
+While the package is currently not in the npm registry you can include it as a dependency within your development projects by specifying it as a file dependency in package.json or directly from github using:
 
-```
-"dependencies": {
-    ...
-    "vue-ts-component": "file:path/to/folder",
-    ...
-  },
-```
+	npm install locoslab/vue-ts-component --save-dev
+
 
 ### Usage
 
@@ -36,7 +31,7 @@ import VueTsComponent from 'vue-ts-component'
 // TypeScript support for type checking and autocomplete
 class Demo extends VueTsComponent.Component {
 
-	// transforms to option.template 
+	// transforms to option.template
 	static template:string = '#demo-template';
 
 	// transforms to option.replace
@@ -59,8 +54,8 @@ class Demo extends VueTsComponent.Component {
 	compiled():void {
 		// ...
 	}
-	
-	// the @eventHook decorator registers the decorated method as event listener 
+
+	// the @eventHook decorator registers the decorated method as event listener
 	@eventHook('listen.to.event')
 	eventListenToEvent():boolean {
 		// ...
@@ -79,4 +74,9 @@ class Demo extends VueTsComponent.Component {
 		// ...
 	}
 }
-```		
+```
+
+
+## License
+
+[MIT](http://opensource.org/licenses/MIT)
