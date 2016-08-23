@@ -1,15 +1,14 @@
-import VueTsComponent from '../../src/vue-ts-component'  
+import VueTsComponent from '../../src/vue-ts-component'
 
 // transform the class Count to a vue component called count
 @VueTsComponent.component("count")
 // the VueComponent.Component provides all the declarations, Vue provieds to the component, the makes sure
 // TypeScript support type checking and autocomplete
 export default class Count extends VueTsComponent.Component {
-    
-    // the @props decorator transforms a property to an attribute
+        // the @props decorator transforms a property to an attribute
     // for the supported options see http://vuejs.org/api/options.html#props
     @VueTsComponent.prop({
-        type: Boolean,  
+        type: Boolean,
         required: false
     })
     option:boolean;
@@ -18,7 +17,7 @@ export default class Count extends VueTsComponent.Component {
     counter:number = 1
 
     decCounter() {
-        this.counter-- 
+        this.counter--
     }
 
     incCounter() {
@@ -29,7 +28,7 @@ export default class Count extends VueTsComponent.Component {
     get computed():number {
         return 1
     }
-    
+
     set computed(arg:number) {
         // ...
     }

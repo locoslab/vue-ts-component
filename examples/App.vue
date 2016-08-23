@@ -31,7 +31,7 @@ console.log('This is App.vue')
 export default {
   components: {
     count,demogrid
-  },props: {
+  }, props: {
     gridColumns:{},
     gridData:{},
     searchQuery:{}

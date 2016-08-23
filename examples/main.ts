@@ -4,7 +4,6 @@ declare var require: any
 var App = require('./App.vue')
 
 /* eslint-disable no-new */
-
 new Vue({
   el: 'body',
   components: { App },

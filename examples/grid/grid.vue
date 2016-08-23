@@ -20,8 +20,8 @@
     </div>
 </template>
 
-<script lang='ts'>
+<script>
     import DemoGrid from './grid.ts';
-    import VueComponent from '../../src/vue-ts-component' ;
+    import VueComponent from '../../src/vue-ts-component';
     export default VueComponent.createOptions(DemoGrid);
 </script>

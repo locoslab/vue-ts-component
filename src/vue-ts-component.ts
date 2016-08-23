@@ -3,16 +3,15 @@ import * as VueRouter from 'vue-router'
 
 /**
  * This package contains utilities to create view components that look like classes.
- * Note that this code relies on the decorator feature of typescript to perform the conversions. At the
- * time of writing, (July 2016), this feature is marked experimental and requires a
- * special compiler flag.
+ * Note that this code relies on the decorator feature of typescript to perform the
+ * conversions. At time of writing, (August 2016), this feature is marked
+ * experimental and requires the special compiler flag 'experimentalDecorators'.
  *
  * @author Lukas Gamper, Marcus Handte, Stephan Wagner
  */
 export namespace VueTsComponent {
 
-
- /**
+    /**
      * The base class for vue components with property and method definitions
      * that will be implemented by the vue framework.
      */
@@ -167,9 +166,9 @@ export namespace VueTsComponent {
             options.events = proto.__events__;
         if (proto['__hooks__'])
             VueStatic.util.extend(options, proto.__hooks__);
-        // get methods
-        Object.getOwnPropertyNames(proto).forEach((method: string): void => {
 
+        // handle methods
+        Object.getOwnPropertyNames(proto).forEach((method: string): void => {
             // skip the constructor and the internal option keeper
             if (['constructor'].indexOf(method) > -1)
                 return;
@@ -180,7 +179,7 @@ export namespace VueTsComponent {
             if (typeof desc.value === 'function')
                 options.methods[method] = proto[method];
 
-            // if getter and setter are defied, pass the function as computed property
+            // if getter and setter are defined, pass the function as computed property
             else if (typeof desc.set === 'function')
                 options.computed[method] = {
                     get: desc.get,

@@ -7,8 +7,8 @@
   </div>
 </template>
 
-<script lang='ts' >
+<script>
     import Count from './count.ts';
-    import VueTsComponent from '../../src/vue-ts-component' ;
+    import VueTsComponent from '../../src/vue-ts-component';
     export default VueTsComponent.createOptions(Count);
 </script>
