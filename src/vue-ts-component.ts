@@ -139,13 +139,13 @@ export namespace VueTsComponent {
      * Creates an options object from the constructor.
      *
      * @param cls The constructor of a component.
+     * @param options Starting options used to create the component options
+     * (some fields are always overwritten)
      */
-    export function createOptions(cls: any): vuejs.ComponentOption {
-        let options: any = {
-            data: ((): any => { return new cls(); }),
-            methods: {},
-            computed: {}
-        };
+    export function createOptions(cls: any, options: any = {}): vuejs.ComponentOption {
+        options.data = ((): any => { return new cls(); })
+        options.methods = options.methods || {}
+        options.computed = options.computed || {}
 
         // check for replace and template
         if (cls.hasOwnProperty('replace'))
