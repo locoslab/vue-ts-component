@@ -1,6 +1,6 @@
 {
   "name": "vue-ts-component",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "This package contains utilities to create vue components that look like classes. The code is is based on https://github.com/usystems/vuejs-typescript-component. The modifications include a few renamings and extensions for vue-router. Note that this code relies on the decorator feature of typescript to perform the conversions. At the time of writing, (July 2016), this feature is marked experimental and requires a special compiler flag.",
   "main": "./dist/vue-ts-component.js",
   "typings": "./src/vue-ts-component.ts",
