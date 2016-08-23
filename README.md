@@ -1,81 +1,85 @@
 # vue-ts-component
 Decorators to transform a TypeScript class to a Vue component
 
-### Setup
-To setup the package you can install the npm dependencies by:
+## Use
+Please see the provided example for a complete setup with browserify & vueify
+that supports hot module reloading.
 
-    npm install
+We recommend placing the TypeScript code in a separate file referenced by the
+vue file to enable editor support and typemaps.
 
-You can run the examples by:
+The vue file (cf. [`count.vue`](examples/count/count.vue))
+```html
+<template>
+  <div class="hello">
+    <h3>Counter</h3>
+    {{counter}}
+    <a href="#" v-on:click.stop="incCounter">Inc</a>
+    <a href="#" v-on:click.stop="decCounter">Dec</a>
+  </div>
+</template>
+<script>
+    import Count from './count.ts';
+    import VueTsComponent from '../../src/vue-ts-component';
+    export default VueTsComponent.createOptions(Count);
+</script>
+```
 
-	npm run examples
+The actual typescript class (cf. [`count.ts`](examples/count/count.ts))
+```typescript
+import VueTsComponent from '../../src/vue-ts-component'  
 
-To compile the source please run the build script
+// transform the class Count to a vue component called count
+@VueTsComponent.component("count")
+// the VueComponent.Component provides all the declarations, Vue provieds to the component, the makes sure
+// TypeScript support type checking and autocomplete
+export default class Count extends VueTsComponent.Component {
+    // the @props decorator transforms a property to an attribute
+    // for the supported options see http://vuejs.org/api/options.html#props
+    @VueTsComponent.prop({
+        type: Boolean,  
+        required: false
+    })
+    option:boolean;
 
-	npm run build
+    // normal properties, pass through the data options are declared as normal properties
+    counter:number = 1
 
+    decCounter() {
+        this.counter--
+    }
+
+    incCounter() {
+        this.counter++
+    }
+
+    // computed properties are defined as getter and setter
+    get computed():number {
+        return 1
+    }
+
+    set computed(arg:number) {
+        // ...
+    }
+}
+```
+
+## Install
 While the package is currently not in the npm registry you can include it as a dependency within your development projects by specifying it as a file dependency in package.json or directly from github using:
 
 	npm install locoslab/vue-ts-component --save-dev
 
+## Develop
+``` bash
+# once: install dependencies
+npm install
 
-### Usage
+# run the examples with hot reload served at localhost:8080
+npm start
 
-```typescript
-// load the decorators
-import VueTsComponent from 'vue-ts-component'
-
-// transform the class Demo to a vue component called demo
-@createComponent('demo')
-// The Vue typings contain the definitions that are needed to enable
-// TypeScript support for type checking and autocomplete
-class Demo extends VueTsComponent.Component {
-
-	// transforms to option.template
-	static template:string = '#demo-template';
-
-	// transforms to option.replace
-	static replace:boolean = true;
-
-	// the @props decorator transforms a property to an attribute
-	// for the supported options see http://vuejs.org/api/options.html#props
-	@prop({
-		type: Boolean,
-		required: true
-	})
-	option:boolean;
-
-	// normal properties, pass through the data options are declared as normal properties
-	property:string = 'foo';
-
-	// the @lifecycleHook decorator supports the following hooks:
-	// created, beforeCompile, compiled, ready, attached, detached, beforeDestroy, destroyed
-	@lifecycleHook('compiled')
-	compiled():void {
-		// ...
-	}
-
-	// the @eventHook decorator registers the decorated method as event listener
-	@eventHook('listen.to.event')
-	eventListenToEvent():boolean {
-		// ...
-	}
-
-	// normal methods are declared as class members
-	method(arg:string):void {
-		// ...
-	}
-
-	// computed properties are defined as getter and setter
-	get computed():number {
-		// ...
-	}
-	set computed(arg:number) {
-		// ...
-	}
-}
+# build for production with minification
+npm run prepare
 ```
-
 
 ## License
 
