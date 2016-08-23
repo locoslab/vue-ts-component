@@ -1,4 +1,4 @@
-# vue-ts-component
+# vue-ts-component [![Build Status](https://travis-ci.org/locoslab/vue-ts-component.svg?branch=master)](https://travis-ci.org/locoslab/vue-ts-component)
 Decorators to transform a TypeScript class to a Vue component
 
 ## Use
