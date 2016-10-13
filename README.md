@@ -1,5 +1,16 @@
 # vue-ts-component [![Build Status](https://travis-ci.org/locoslab/vue-ts-component.svg?branch=master)](https://travis-ci.org/locoslab/vue-ts-component)
-Decorators to transform a TypeScript class to a Vue component
+Decorators to transform a TypeScript class to a Vue.js 1.0 component
+
+# :snowflake: DEPECATION NOTICE :snowflake:
+This project targets Vue.js 1.0. For the current Vue.js 2.0, we started a new project from scratch at [vue-typescript-component](https://github.com/locoslab/vue-typescript-component).
+
+If you are working with Vue.js 2.0 and TypeScript, you might also be interested in
+* [vue-typescript-import-dts](https://github.com/locoslab/vue-typescript-component) to import `*.vue` files in TypeScript sources
+* [vue-typescript-jest](https://github.com/locoslab/vue-typescript-jest) to test Vue.js components and TypeScript sources using Jest
+* [vue-jest-utils](https://github.com/locoslab/vue-jest-utils) to simplify snapshot testing of Vue.js components using Jest and html2jade
+* [vue-typescript-component-example](https://github.com/locoslab/vue-typescript-component-example) as an example for these packages that shows a TypeScript/Tsify/Vue.js/Vueify/Pug setup supporting Hot Module Replacement and unit/snapshot testing with Jest
+
+# Archived Information
 
 ## Use
 Please see the provided example for a complete setup with browserify & vueify
@@ -27,7 +38,7 @@ The vue file (cf. [`count.vue`](examples/count/count.vue))
 
 The actual typescript class (cf. [`count.ts`](examples/count/count.ts))
 ```typescript
-import VueTsComponent from '../../src/vue-ts-component'  
+import VueTsComponent from '../../src/vue-ts-component'
 
 // transform the class Count to a vue component called count
 @VueTsComponent.component("count")
@@ -37,7 +48,7 @@ export default class Count extends VueTsComponent.Component {
     // the @props decorator transforms a property to an attribute
     // for the supported options see http://vuejs.org/api/options.html#props
     @VueTsComponent.prop({
-        type: Boolean,  
+        type: Boolean,
         required: false
     })
     option:boolean;
