@@ -1,14 +1,8 @@
 # vue-ts-component [![Build Status](https://travis-ci.org/locoslab/vue-ts-component.svg?branch=master)](https://travis-ci.org/locoslab/vue-ts-component)
 Decorators to transform a TypeScript class to a Vue.js 1.0 component
 
-# :snowflake: DEPECATION NOTICE :snowflake:
-This project targets Vue.js 1.0. For the current Vue.js 2.0, we started a new project from scratch at [vue-typescript-component](https://github.com/locoslab/vue-typescript-component).
-
-If you are working with Vue.js 2.0 and TypeScript, you might also be interested in
-* [vue-typescript-import-dts](https://github.com/locoslab/vue-typescript-component) to import `*.vue` files in TypeScript sources
-* [vue-typescript-jest](https://github.com/locoslab/vue-typescript-jest) to test Vue.js components and TypeScript sources using Jest
-* [vue-jest-utils](https://github.com/locoslab/vue-jest-utils) to simplify snapshot testing of Vue.js components using Jest and html2jade
-* [vue-typescript-component-example](https://github.com/locoslab/vue-typescript-component-example) as an example for these packages that shows a TypeScript/Tsify/Vue.js/Vueify/Pug setup supporting Hot Module Replacement and unit/snapshot testing with Jest
+# :snowflake: DEPRECATION NOTICE :snowflake:
+This project targets Vue.js 1.0. Vue.js 2.x has official TypeScript support and we recommend to start new projects with [Vue CLI](https://cli.vuejs.org/).
 
 # Archived Information
 
